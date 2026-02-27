@@ -1,0 +1,13 @@
+#include <iostream>
+
+int main() {
+   int nail [9];
+   for ( int i = 0; i < 9; i++ ){
+    nail[i] = i;      
+   }  
+      for (int i = 0; i < 9; i++){
+         for ( int i = 0; i < 9; i++ )
+        
+      }
+      return 0;
+}
