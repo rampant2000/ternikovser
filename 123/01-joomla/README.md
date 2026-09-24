@@ -39,26 +39,26 @@ docker compose down -v
 ## Скриншоты
 
 ### 1. Мастер установки Joomla
-![Мастер установки](screenshots/Снимок экрана ЖАМА 1 2026-09-17 105029.png)
+![Мастер установки](screenshots/1.png)
 
 ### 2. Установщик Joomla
-![Установщик](screenshots/Снимок экрана жама 2 2026-09-17 105436.png)
+![Установщик](screenshots/2.png)
 
 ### 3. Установщик — настройка БД
-![Настройка БД](screenshots/Снимок экрана жама 3 2026-09-17 111750.png)
+![Настройка БД](screenshots/3.png)
 
 ### 4. Сайт Joomlapng
-![Сайт](screenshots/Снимок экрана жама 4 2026-09-17 112352.png)
+![Сайт](screenshots/4.png)
 
 ### 5. Админ-панель
-![Админка](screenshots/Снимок экрана жама 5 2026-09-17 112456.png)
+![Админка](screenshots/5.png)
 
 ### 6. Статус контейнеров
-![docker compose ps](screenshots/Снимок экрана жама 6 2026-09-17 112615.png)
+![docker compose ps](screenshots/6.png)
 
 ### 7. Логи
-![Логи](screenshots/Снимок экрана жама 7 2026-09-17 113231.png)
+![Логи](screenshots/7.png)
 
 ### 8. Запуск проекта
-![Запуск](screenshots/Снимок экрана жама 8 2026-09-17 113326.png)
+![Запуск](screenshots/8.png)
 

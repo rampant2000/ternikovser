@@ -40,19 +40,16 @@ docker compose down -v
 ## Скриншоты
 
 ### 1. Запуск проекта
-![docker compose up](screenshots/01-up.png)
+![docker compose up](screenshots/1.png)
 
-### 2. Статус контейнеров
-![docker compose ps](screenshots/02-ps.png)
+### 2. Выбор языка установщика
+![Язык](screenshots/2.png)
 
-### 3. Выбор языка установщика
-![Язык](screenshots/03-install-language.png)
+### 3. Форма установки
+![Установка](screenshots/3.png)
 
-### 4. Форма установки
-![Установка](screenshots/04-install-form.png)
+### 4. Завершение установки
+![Установка завершена](screenshots/4.png)
 
-### 5. Завершение установки
-![Установка завершена](screenshots/05-install-success.png)
-
-### 6. Главная страница сайта
-![Сайт](screenshots/06-site.png)
+### 5. Главная страница сайта
+![Сайт](screenshots/5.png)
