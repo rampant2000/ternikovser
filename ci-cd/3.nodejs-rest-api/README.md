@@ -79,7 +79,7 @@ docker run --rm my-node-app:latest
 
 ## Результат
 
-- Actions: https://github.com/bobojonanaev2-code/my-node-app/actions
+- Actions: https://github.com/rampant2000/node-app/actions
 - Все jobs — ✅
 
 ## Скриншоты

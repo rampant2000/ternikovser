@@ -55,7 +55,7 @@ docker run --rm my-rust-app:latest
 
 ## Результат
 
-- Actions: https://github.com/bobojonanaev2-code/my-rust-app/actions
+- Actions: https://github.com/rampant2000/rust-app/actions
 - Все jobs — ✅
 
 ## Скриншоты

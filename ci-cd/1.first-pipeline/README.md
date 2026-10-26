@@ -53,7 +53,7 @@ git push origin main
 
 ## Результат
 
-- Actions: https://github.com/bobojonanaev2-code/my-first-cicd/actions
+- Actions: https://github.com/rampant2000/first-cicd/actions
 - Статус: ✅ все шаги прошли успешно
 
 ## Скриншоты

@@ -77,7 +77,7 @@ docker run --rm my-go-app:latest
 
 ## Результат
 
-- Actions: https://github.com/bobojonanaev2-code/my-go-app/actions
+- Actions: https://github.com/rampant2000/go-app/actions
 - Все jobs — ✅
 
 ## Скриншоты

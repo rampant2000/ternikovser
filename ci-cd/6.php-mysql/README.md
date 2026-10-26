@@ -74,7 +74,7 @@ docker run --rm my-php-app:latest
 
 ## Результат
 
-- Actions: https://github.com/bobojonanaev2-code/my-php-app/actions
+- Actions: https://github.com/rampant2000/php-app
 - Все jobs — ✅
 
 ## Скриншоты
