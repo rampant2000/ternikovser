@@ -5,7 +5,7 @@ CI-пайплайн для Node.js-приложения: линтинг (ESLint)
 ## Задание
 
 Источник: [content/DevOps/CI_CD/Pipelines/NodeJS.md](https://gitflic.ru/project/rurewa/mfua/blob?file=content/DevOps/CI_CD/Pipelines/NodeJS.md&branch=master)
-Отдельный репозиторий: [bobojonanaev2-code/my-node-app](https://github.com/bobojonanaev2-code/my-node-app)
+Отдельный репозиторий: [rampant2000/node-app](https://github.com/rampant2000/node-app)
 
 ## Что сделано
 

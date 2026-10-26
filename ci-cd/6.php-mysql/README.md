@@ -5,7 +5,7 @@ CI-пайплайн для PHP-приложения: проверка синта
 ## Задание
 
 Источник: [content/DevOps/CI_CD/Pipelines/PHP.md](https://gitflic.ru/project/rurewa/mfua/blob?file=content/DevOps/CI_CD/Pipelines/PHP.md&branch=master)
-Отдельный репозиторий: [bobojonanaev2-code/my-php-app](https://github.com/bobojonanaev2-code/my-php-app)
+Отдельный репозиторий: [rampant2000/php-app.git](https://github.com/rampant2000/php-app.git)
 
 ## Что сделано
 

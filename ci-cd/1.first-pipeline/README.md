@@ -5,7 +5,7 @@
 ## Задание
 
 Источник: [content/DevOps/CI_CD/Pipelines/hello.md](https://gitflic.ru/project/rurewa/mfua/blob?file=content/DevOps/CI_CD/Pipelines/hello.md&branch=master)
-Отдельный репозиторий: [bobojonanaev2-code/my-first-cicd](https://github.com/bobojonanaev2-code/my-first-cicd)
+Отдельный репозиторий: [rampant2000/first-cicdd](https://github.com/rampant2000/first-cicd)
 
 ## Что сделано
 

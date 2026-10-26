@@ -13,3 +13,5 @@
 | 5 | PostgreSQL + pgAdmin | [`5.postgresql-pgadmin/`](5.postgresql-pgadmin/) |
 | 6 | drawDB | [`6.drawdb/`](6.drawdb/) |
 | 7 | LibreDB Studio | [`7.libredb-studio/`](7.libredb-studio/) |
+| 8 | Homehub | [`08.homehub/`](08.homehub/)
+| 9 | CloudBeaver | [`09.cloudbeaver/`](09.cloudbeaver/)

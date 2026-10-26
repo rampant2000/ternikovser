@@ -5,7 +5,7 @@ CI-пайплайн для Go-приложения: линтер (golangci-lint)
 ## Задание
 
 Источник: [content/DevOps/CI_CD/Pipelines/Go.md](https://gitflic.ru/project/rurewa/mfua/blob?file=content/DevOps/CI_CD/Pipelines/Go.md&branch=master)
-Отдельный репозиторий: [bobojonanaev2-code/my-go-app](https://github.com/bobojonanaev2-code/my-go-app)
+Отдельный репозиторий: [rampant2000/go-app](https://github.com/rampant2000/go-app)
 
 ## Что сделано
 
