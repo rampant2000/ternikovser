@@ -2,10 +2,13 @@
 
 ### 🔌 Подключение к контейнеру
 
+
+> **Задание выполнять в VS Code - Git-Bash!**
+
 > **Работу можно выполнять в созданном ранее каталоге `my-mysql`, в котором уже есть файл `my.cnf`**
 
 Замените старое файла содержимое файла `my.cnf` на это:
-```shell
+```ini
 [mysqld]
 character-set-server = utf8mb4
 collation-server = utf8mb4_unicode_ci
@@ -18,7 +21,9 @@ default-character-set = utf8mb4
 [mysql]
 default-character-set = utf8mb4
 ```
-после замены `my.cnf` перезапустить контейнер, чтобы настройки применились:
+Параметры `general_log = 1` и `general_log_file = /var/lib/mysql/general.log` нужны для того, чтобы MySQL вела файл журнала записей (лог).
+
+после замены `my.cnf` перезапустить контейнер (если вы не удаляли старый контейнер), чтобы настройки применились:
 ```shell
 docker restart my-mysql
 ```
@@ -30,7 +35,7 @@ docker volume prune -a
 ```
 > **docker volume prune -a удаляет все неиспользуемые тома — используйте с осторожностью!**
 
-потом создать новый контейнер
+потом создать новый контейнер (Git-Bash):
 ```bash
 docker run --name my-mysql \
   -e MYSQL_ROOT_PASSWORD=123 \
@@ -649,15 +654,16 @@ LIMIT 10;
 
 **12.2. Экспорт лога в файл на хосте**
 
+Git-Bash:
 ```shell
 docker exec -e MYSQL_PWD=123 my-mysql mysql -uroot \
   --default-character-set=utf8mb4 \
   -e "SELECT * FROM sql_practice.my_actions ORDER BY event_time DESC" \
-  > my_actions_export.txt
+  > my_actions_export.log
 ```
-Посмотреть содержимое my_actions_export.txt:
+Посмотреть содержимое `my_actions_export.log`:
 ```shell
-cat my_actions_export.txt
+cat my_actions_export.log
 ```
 
 **12.3. Создание дампа БД**
@@ -671,7 +677,7 @@ cat my_actions_export.txt
 ```shell
 docker exec my-mysql mysqldump -uroot -p123 sql_practice > dump.sql
 ```
-Рекомендуемый вариант — без GTID и с согласованным снимком:
+Рекомендуемый вариант — без GTID и с согласованным снимком (Git-Bash):
 ```shell
 docker exec -e MYSQL_PWD=123 my-mysql mysqldump -uroot \
   --set-gtid-purged=OFF \
@@ -801,6 +807,8 @@ SELECT * FROM my_actions LIMIT 5;
 ```
 
 > VIEW my_actions был создан в sql_practice и включён в дамп (mysqldump по умолчанию сохраняет VIEW). После импорта он должен восстановиться. Если вы создавали VIEW в базе mysql — он не попадёт в дамп sql_practice, и его нужно создать заново.
+
+Результат оформить в виде отдельного `README.md` со скриншотами результатов ваших действий, дампом и логом (лог-файл должен содержать только ваши действия) в этой же папке и прислать ссылку преподавателю.
 
 ---
 
