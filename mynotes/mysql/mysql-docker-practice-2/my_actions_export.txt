@@ -1,0 +1,8 @@
+event_time	command_type	argument
+2026-11-17 10:05:29.521499	Query	SELECT * FROM sql_practice.my_actions ORDER BY event_time DESC
+2026-11-17 10:05:29.512795	Query	select @@version_comment limit 1
+2026-11-17 10:02:24.671685	Query	SELECT * FROM customers LIMIT 3
+2026-11-17 10:02:24.669366	Query	select @@version_comment limit 1
+2026-11-17 10:02:18.308997	Query	select @@version_comment limit 1
+2026-11-17 10:02:13.152425	Query	select @@version_comment limit 1
+2026-11-17 10:00:00.000000	Query	select @@version_comment limit 1

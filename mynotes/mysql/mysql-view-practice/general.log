@@ -1,0 +1,21 @@
+2026-11-17T11:23:34.000000Z	   14 Connect	root@localhost on  using Socket
+2026-11-17T11:23:34.000243Z	   14 Query	select @@version_comment limit 1
+2026-11-17T11:23:34.004938Z	   14 Query	SET GLOBAL log_output = 'FILE'
+2026-11-17T11:23:34.005127Z	   14 Query	SET GLOBAL general_log = 'ON'
+2026-11-17T11:23:34.005203Z	   14 Quit	
+2026-11-17T11:23:37.501820Z	   15 Connect	root@localhost on  using Socket
+2026-11-17T11:23:37.502014Z	   15 Query	select @@version_comment limit 1
+2026-11-17T11:23:37.502213Z	   15 Query	SELECT DATABASE()
+2026-11-17T11:23:37.502343Z	   15 Init DB	sql_practice
+2026-11-17T11:23:37.502472Z	   15 Query	SHOW FULL TABLES WHERE Table_type = 'VIEW'
+2026-11-17T11:23:37.503768Z	   15 Query	SELECT * FROM moscow_customers
+2026-11-17T11:23:37.504087Z	   15 Query	SELECT * FROM customer_summary
+2026-11-17T11:23:37.504435Z	   15 Query	SELECT * FROM public_customers
+2026-11-17T11:23:37.504626Z	   15 Query	EXPLAIN SELECT * FROM customer_summary WHERE city = 'Москва'
+2026-11-17T11:23:37.504947Z	   15 Query	CREATE VIEW log_demo_view AS SELECT id, name FROM customers
+2026-11-17T11:23:37.517567Z	   15 Query	SELECT * FROM log_demo_view
+2026-11-17T11:23:37.518208Z	   15 Query	DROP VIEW log_demo_view
+2026-11-17T11:23:37.527833Z	   15 Quit	
+2026-11-17T11:23:42.651258Z	   16 Connect	root@localhost on  using Socket
+2026-11-17T11:23:42.651443Z	   16 Query	select @@version_comment limit 1
+2026-11-17T11:23:42.651606Z	   16 Query	SET GLOBAL general_log = 'OFF'

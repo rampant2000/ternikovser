@@ -1,0 +1,51 @@
+2026-11-17T12:13:45.063000Z	   10 Query	select @@version_comment limit 1
+2026-11-17T12:13:48.724986Z	   10 Query	CREATE DATABASE shop
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci
+2026-11-17T12:13:49.470405Z	   10 Query	SELECT DATABASE()
+2026-11-17T12:13:49.471651Z	   10 Query	show databases
+2026-11-17T12:13:49.474583Z	   10 Query	show tables
+2026-11-17T12:13:53.299153Z	   10 Query	CREATE TABLE products1 (
+    name VARCHAR(100) NOT NULL,
+    price INT NOT NULL
+)
+2026-11-17T12:13:54.085422Z	   10 Query	CREATE TABLE products2 (
+    name VARCHAR(100) NOT NULL,
+    price INT NOT NULL
+)
+2026-11-17T12:13:58.788041Z	   10 Query	INSERT INTO products1 (name, price) VALUES
+('Дыни', 800),
+('Клубника', 150),
+('Яблоки', 120),
+('Лимоны', 200)
+2026-11-17T12:13:59.467985Z	   10 Query	INSERT INTO products2 (name, price) VALUES
+('Дыни', 800),
+('Клубника', 150),
+('Каштаны', 200),
+('Хурма', 350)
+2026-11-17T12:14:04.624830Z	   10 Query	SHOW TABLES
+2026-11-17T12:14:04.634129Z	   10 Query	SELECT * FROM products1
+2026-11-17T12:14:05.242067Z	   10 Query	SELECT * FROM products2
+2026-11-17T12:14:17.418648Z	   10 Query	SELECT * FROM products1 WHERE price > 150
+2026-11-17T12:14:21.353537Z	   10 Query	SELECT name FROM products1
+2026-11-17T12:14:34.467894Z	   10 Query	SELECT name FROM products1
+UNION
+SELECT name FROM products2
+2026-11-17T12:14:39.199730Z	   10 Query	SELECT name, price FROM products1
+EXCEPT
+SELECT name, price FROM products2
+2026-11-17T12:14:43.512085Z	   10 Query	SELECT name, price FROM products1
+INTERSECT
+SELECT name, price FROM products2
+2026-11-17T12:14:55.639834Z	   10 Query	SELECT t1.name AS name1, t1.price AS price1,
+       t2.name AS name2, t2.price AS price2
+FROM products1 t1
+CROSS JOIN products2 t2
+2026-11-17T12:14:59.816509Z	   10 Query	SELECT t1.name, t1.price AS price1, t2.price AS price2
+FROM products1 t1
+JOIN products2 t2 ON t1.name = t2.name
+2026-11-17T12:15:04.502997Z	   10 Query	SELECT t1.name, t1.price AS price1, t2.price AS price2
+FROM products1 t1
+LEFT JOIN products2 t2 ON t1.name = t2.name
+2026-11-17T12:15:22.596398Z	   11 Query	select @@version_comment limit 1
+2026-11-17T12:15:22.596646Z	   11 Query	SET GLOBAL general_log='OFF'

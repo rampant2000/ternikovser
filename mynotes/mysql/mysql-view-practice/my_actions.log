@@ -1,0 +1,56 @@
+2026-11-17T11:18:08.953783Z	    9 Query	SHOW VARIABLES LIKE 'general_log%'
+2026-11-17T11:18:10.224274Z	    9 Query	SHOW VARIABLES LIKE 'log_output'
+2026-11-17T11:18:24.336414Z	    9 Query	CREATE DATABASE sql_practice
+2026-11-17T11:18:24.400476Z	    9 Query	SELECT DATABASE()
+2026-11-17T11:18:24.402150Z	    9 Query	show databases
+2026-11-17T11:18:24.405496Z	    9 Query	show tables
+2026-11-17T11:18:24.408675Z	    9 Query	CREATE TABLE customers (
+2026-11-17T11:18:24.823785Z	    9 Query	CREATE TABLE orders (
+2026-11-17T11:18:25.901615Z	    9 Query	INSERT INTO customers (name, email, city) VALUES
+2026-11-17T11:18:25.966150Z	    9 Query	INSERT INTO orders (customer_id, order_date, amount, status) VALUES
+2026-11-17T11:18:26.020882Z	    9 Query	SHOW TABLES
+2026-11-17T11:18:26.022335Z	    9 Query	SELECT * FROM customers
+2026-11-17T11:18:26.022850Z	    9 Query	SELECT * FROM orders
+2026-11-17T11:19:51.689282Z	    9 Query	CREATE OR REPLACE VIEW moscow_customers AS
+2026-11-17T11:19:52.704122Z	    9 Query	SELECT * FROM moscow_customers
+2026-11-17T11:20:02.925698Z	    9 Query	INSERT INTO customers (name, email, city)
+2026-11-17T11:20:02.944204Z	    9 Query	SELECT * FROM moscow_customers
+2026-11-17T11:20:03.448433Z	    9 Query	DELETE FROM customers
+2026-11-17T11:20:18.774662Z	    9 Query	CREATE OR REPLACE VIEW customer_summary AS
+2026-11-17T11:20:18.863697Z	    9 Query	SELECT * FROM customer_summary
+2026-11-17T11:20:18.865611Z	    9 Query	SELECT name, total_amount
+2026-11-17T11:20:19.793111Z	    9 Query	SELECT * FROM customer_summary
+2026-11-17T11:20:39.010887Z	    9 Query	SHOW FULL TABLES WHERE Table_type = 'VIEW'
+2026-11-17T11:20:39.555000Z	    9 Query	SHOW CREATE VIEW customer_summary
+2026-11-17T11:21:00.467041Z	    9 Query	CREATE OR REPLACE VIEW moscow_customers AS
+2026-11-17T11:21:00.522542Z	    9 Query	SELECT * FROM moscow_customers
+2026-11-17T11:21:00.523674Z	    9 Query	DROP VIEW moscow_customers
+2026-11-17T11:21:00.558633Z	    9 Query	DROP VIEW IF EXISTS moscow_customers
+2026-11-17T11:21:00.578130Z	    9 Query	SHOW TABLES
+2026-11-17T11:21:01.069877Z	    9 Query	SHOW FULL TABLES WHERE Table_type = 'VIEW'
+2026-11-17T11:21:11.610768Z	    9 Query	CREATE OR REPLACE VIEW active_customers AS
+2026-11-17T11:21:11.666460Z	    9 Query	UPDATE active_customers
+2026-11-17T11:21:12.163106Z	    9 Query	SELECT * FROM customers WHERE id = 2
+2026-11-17T11:21:23.841344Z	    9 Query	INSERT INTO active_customers (name, email, city)
+2026-11-17T11:21:23.862199Z	    9 Query	SELECT * FROM customers WHERE email = 'new@example.com'
+2026-11-17T11:21:23.863080Z	    9 Query	DELETE FROM active_customers
+2026-11-17T11:21:24.460899Z	    9 Query	SELECT * FROM customers WHERE email = 'new@example.com'
+2026-11-17T11:21:39.446100Z	    9 Query	UPDATE customer_summary
+2026-11-17T11:21:48.560672Z	    9 Query	UPDATE customers
+2026-11-17T11:21:59.130824Z	    9 Query	EXPLAIN
+2026-11-17T11:22:10.237074Z	    9 Query	CREATE OR REPLACE VIEW moscow_customers AS
+2026-11-17T11:22:10.287530Z	    9 Query	INSERT INTO moscow_customers (name, email, city)
+2026-11-17T11:22:10.307212Z	    9 Query	SELECT * FROM customers WHERE email = 'petr2@example.com'
+2026-11-17T11:22:10.720045Z	    9 Query	SELECT * FROM moscow_customers
+2026-11-17T11:22:19.505868Z	    9 Query	CREATE OR REPLACE VIEW moscow_customers AS
+2026-11-17T11:22:20.003204Z	    9 Query	INSERT INTO moscow_customers (name, email, city)
+2026-11-17T11:22:28.514629Z	    9 Query	DELETE FROM customers
+2026-11-17T11:22:29.122367Z	    9 Query	SELECT * FROM customers
+2026-11-17T11:22:37.581621Z	    9 Query	CREATE OR REPLACE VIEW public_customers AS
+2026-11-17T11:22:37.630750Z	    9 Query	DROP USER IF EXISTS 'analyst'@'%'
+2026-11-17T11:22:37.661620Z	    9 Query	CREATE USER 'analyst'@'%' IDENTIFIED BY <secret>
+2026-11-17T11:22:37.686328Z	    9 Query	GRANT SELECT ON sql_practice.public_customers TO 'analyst'@'%'
+2026-11-17T11:22:38.196915Z	    9 Query	SHOW GRANTS FOR 'analyst'@'%'
+2026-11-17T11:23:04.753438Z	   10 Query	SELECT * FROM sql_practice.public_customers
+2026-11-17T11:23:20.892353Z	   11 Query	SELECT * FROM sql_practice.customers
+2026-11-17T11:23:36.386078Z	    9 Query	SET GLOBAL general_log = 'OFF'

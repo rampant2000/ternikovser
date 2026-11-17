@@ -1,0 +1,156 @@
+2026-11-17T13:00:00.000000Z	   10 Query	select @@version_comment limit 1
+2026-11-17T13:00:07.789865Z	   10 Query	CREATE DATABASE shop_norm
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci
+2026-11-17T13:00:08.624246Z	   10 Query	SELECT DATABASE()
+2026-11-17T13:00:08.626127Z	   10 Query	show databases
+2026-11-17T13:00:08.629259Z	   10 Query	show tables
+2026-11-17T13:00:16.581593Z	   10 Query	CREATE TABLE orders_bad (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(100),
+    customer_city VARCHAR(100),
+    product_name VARCHAR(100),
+    product_price INT,
+    quantity INT,
+    order_date DATE
+)
+2026-11-17T13:00:22.962461Z	   10 Query	INSERT INTO orders_bad
+(customer_name, customer_city, product_name, product_price, quantity, order_date)
+VALUES
+('Иван', 'Москва', 'Яблоки', 120, 2, '2026-10-01'),
+('Иван', 'Москва', 'Лимоны', 200, 1, '2026-10-01'),
+('Мария', 'Казань', 'Яблоки', 120, 3, '2026-10-02'),
+('Мария', 'Казань', 'Хурма', 350, 1, '2026-10-03'),
+('Пётр', 'Санкт-Петербург', 'Каштаны', 200, 2, '2026-10-04')
+2026-11-17T13:00:27.222740Z	   10 Query	SELECT * FROM orders_bad
+2026-11-17T13:00:32.434564Z	   10 Query	SELECT SUM(product_price * quantity) AS total
+FROM orders_bad
+WHERE customer_name = 'Иван'
+2026-11-17T13:00:46.122466Z	   10 Query	UPDATE orders_bad
+SET customer_city = 'Сочи'
+WHERE order_id = 1
+2026-11-17T13:00:51.839892Z	   10 Query	SELECT * FROM orders_bad
+WHERE customer_name = 'Иван'
+2026-11-17T13:01:04.512183Z	   10 Query	DELETE FROM orders_bad
+WHERE order_id = 4
+2026-11-17T13:01:09.605469Z	   10 Query	SELECT * FROM orders_bad
+WHERE customer_name = 'Мария'
+2026-11-17T13:01:14.788765Z	   10 Query	INSERT INTO orders_bad (customer_name, customer_city)
+VALUES ('Новый клиент', 'Тверь')
+2026-11-17T13:01:19.754097Z	   10 Query	SELECT * FROM orders_bad
+WHERE customer_name = 'Новый клиент'
+2026-11-17T13:01:34.238750Z	   10 Query	DELETE FROM orders_bad
+WHERE customer_name = 'Новый клиент'
+2026-11-17T13:01:38.070237Z	   10 Query	UPDATE orders_bad
+SET customer_city = 'Москва'
+WHERE order_id = 1
+2026-11-17T13:01:42.723356Z	   10 Query	INSERT INTO orders_bad
+(order_id, customer_name, customer_city, product_name, product_price, quantity, order_date)
+VALUES
+(4, 'Мария', 'Казань', 'Хурма', 350, 1, '2026-10-03')
+2026-11-17T13:01:47.889203Z	   10 Query	SELECT * FROM orders_bad ORDER BY order_id
+2026-11-17T13:01:58.016328Z	   11 Query	select @@version_comment limit 1
+2026-11-17T13:01:58.016492Z	   11 Query	SET GLOBAL general_log='OFF'
+/usr/sbin/mysqld, Version: 8.0.46 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+2026-11-17T13:02:53.659147Z	   14 Query	select @@version_comment limit 1
+2026-11-17T13:03:00.933342Z	   14 Query	SELECT DATABASE()
+2026-11-17T13:03:00.934548Z	   14 Query	show databases
+2026-11-17T13:03:00.935553Z	   14 Query	show tables
+2026-11-17T13:03:09.339778Z	   14 Query	CREATE TABLE customers_3nf (
+    customer_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    customer_city VARCHAR(100) NOT NULL
+)
+2026-11-17T13:03:15.089804Z	   14 Query	CREATE TABLE products_3nf (
+    product_id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    product_price INT NOT NULL
+)
+2026-11-17T13:03:19.842182Z	   14 Query	CREATE TABLE orders_3nf (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    order_date DATE NOT NULL,
+    FOREIGN KEY (customer_id)
+    REFERENCES customers_3nf(customer_id)
+)
+2026-11-17T13:03:24.415785Z	   14 Query	CREATE TABLE order_items_3nf (
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    PRIMARY KEY (order_id, product_id),
+    FOREIGN KEY (order_id)
+    REFERENCES orders_3nf(order_id),
+    FOREIGN KEY (product_id)
+    REFERENCES products_3nf(product_id)
+)
+2026-11-17T13:03:28.924292Z	   14 Query	SHOW TABLES
+2026-11-17T13:03:43.652622Z	   14 Query	INSERT INTO customers_3nf
+(customer_name, customer_city)
+SELECT DISTINCT customer_name, customer_city
+FROM orders_bad
+2026-11-17T13:03:47.234146Z	   14 Query	INSERT INTO products_3nf
+(product_name, product_price)
+SELECT DISTINCT product_name, product_price
+FROM orders_bad
+2026-11-17T13:03:51.628576Z	   14 Query	INSERT INTO orders_3nf
+(order_id, customer_id, order_date)
+SELECT o.order_id, c.customer_id, o.order_date
+FROM orders_bad o
+JOIN customers_3nf c
+  ON c.customer_name = o.customer_name
+ AND c.customer_city = o.customer_city
+2026-11-17T13:03:56.151165Z	   14 Query	INSERT INTO order_items_3nf
+(order_id, product_id, quantity)
+SELECT o.order_id, p.product_id, o.quantity
+FROM orders_bad o
+JOIN products_3nf p
+  ON p.product_name = o.product_name
+ AND p.product_price = o.product_price
+2026-11-17T13:04:01.449359Z	   14 Query	SELECT * FROM customers_3nf
+2026-11-17T13:04:01.450000Z	   14 Query	SELECT * FROM products_3nf
+2026-11-17T13:04:01.450637Z	   14 Query	SELECT * FROM orders_3nf
+2026-11-17T13:04:02.231583Z	   14 Query	SELECT * FROM order_items_3nf
+2026-11-17T13:04:33.376225Z	   14 Query	SELECT SUM(product_price * quantity) AS total_old
+FROM orders_bad
+2026-11-17T13:04:38.275064Z	   14 Query	SELECT SUM(p.product_price * oi.quantity) AS total_new
+FROM order_items_3nf oi
+JOIN products_3nf p
+ON oi.product_id = p.product_id
+2026-11-17T13:04:42.896836Z	   14 Query	SELECT COUNT(*) AS old_count FROM orders_bad
+2026-11-17T13:04:43.531180Z	   14 Query	SELECT COUNT(*) AS new_count FROM orders_3nf
+2026-11-17T13:04:46.984431Z	   14 Query	SELECT SUM(p.product_price * oi.quantity) AS total
+FROM customers_3nf c
+JOIN orders_3nf o ON c.customer_id = o.customer_id
+JOIN order_items_3nf oi ON o.order_id = oi.order_id
+JOIN products_3nf p ON oi.product_id = p.product_id
+WHERE c.customer_name = 'Иван'
+2026-11-17T13:05:05.629713Z	   14 Query	UPDATE customers_3nf
+SET customer_city = 'Сочи'
+WHERE customer_name = 'Иван'
+2026-11-17T13:05:09.385228Z	   14 Query	SELECT * FROM customers_3nf
+WHERE customer_name = 'Иван'
+2026-11-17T13:05:14.235830Z	   14 Query	DELETE FROM order_items_3nf
+WHERE order_id IN (
+    SELECT o.order_id
+    FROM orders_3nf o
+    JOIN customers_3nf c
+    ON o.customer_id = c.customer_id
+    WHERE c.customer_name = 'Мария'
+)
+2026-11-17T13:05:19.717568Z	   14 Query	DELETE FROM orders_3nf
+WHERE customer_id IN (
+    SELECT customer_id FROM customers_3nf
+    WHERE customer_name = 'Мария'
+)
+2026-11-17T13:05:23.468316Z	   14 Query	SELECT * FROM customers_3nf
+WHERE customer_name = 'Мария'
+2026-11-17T13:05:27.507372Z	   14 Query	INSERT INTO customers_3nf (customer_name, customer_city)
+VALUES ('Новый клиент', 'Тверь')
+2026-11-17T13:05:34.345309Z	   14 Query	SELECT * FROM customers_3nf
+WHERE customer_name = 'Новый клиент'
+2026-11-17T13:05:46.368686Z	   14 Query	DROP TABLE orders_bad
+2026-11-17T13:05:51.995735Z	   14 Query	SHOW TABLES
+2026-11-17T13:06:00.632091Z	   15 Query	select @@version_comment limit 1
+2026-11-17T13:06:00.632265Z	   15 Query	SET GLOBAL general_log='OFF'
