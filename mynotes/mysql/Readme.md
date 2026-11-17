@@ -1,20 +1,10 @@
-<div align="center">
+# Практические работы — MySQL
 
-# MySQL
-
-### Учебные проекты по проектированию баз данных и SQL
-
-От базового развертывания MySQL в Docker до работы с представлениями, реляционными операциями и нормализацией структур данных.
-
-<p>
-  <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL 8.0" />
-  <img src="https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/SQL-Practice-335C67?style=for-the-badge" alt="SQL Practice" />
-  <img src="https://img.shields.io/badge/Works-6-success?style=for-the-badge" alt="6 практических работ" />
-</p>
-
-</div>
-
----
-
-## 📚 Перечень выполненных заданий
+| № | Название | Ссылка |
+|---|----------|--------|
+| 1 | mysql docker practice | https://github.com/rampant2000/ternikovser/tree/main/mynotes/mysql/mysql-docker-practice |
+| 2 | mysql docker practice-2 | https://github.com/rampant2000/ternikovser/tree/main/mynotes/mysql/mysql-docker-practice-2 |
+| 3 | mysql view practice | https://github.com/rampant2000/ternikovser/tree/main/mynotes/mysql/mysql-view-practice |
+| 4 | products mysql | https://github.com/rampant2000/ternikovser/tree/main/mynotes/mysql/products-mysql |
+| 5 | mysql normalization practice | https://github.com/rampant2000/ternikovser/tree/main/mynotes/mysql/mysql-normalization-practice |
+| 6 | mysql alias practice | https://github.com/rampant2000/ternikovser/tree/main/mynotes/mysql/mysql-alias-practice |
