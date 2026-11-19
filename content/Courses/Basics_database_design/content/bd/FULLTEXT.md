@@ -18,8 +18,7 @@
 
 ## 🔹 0. Подготовка `my.cnf`
 
-В каталоге, откуда будете запускать контейнер, создайте файл `my.cnf`:
-
+В **WSL**, в каталоге, откуда будете запускать контейнер, создайте файл `my.cnf`:
 ```ini
 [mysqld]
 character-set-server = utf8mb4
@@ -48,7 +47,8 @@ docker stop my-mysql 2>/dev/null
 docker rm my-mysql 2>/dev/null
 docker volume rm mysql_data 2>/dev/null
 ```
-Удалите файлы логов и дампов от предыдущих заданий!
+
+**Удалите файлы логов и дампов от предыдущих заданий!**
 
 Например так (имена файлов могут отличаться!):
 
@@ -56,6 +56,7 @@ docker volume rm mysql_data 2>/dev/null
 ```shell
 ls
 ```
+и
 ```shell
 rm general.log  index_dump_clean.sql  index_dump.sql  my_actions.log
 ```
